@@ -93,8 +93,16 @@ resource "azurerm_linux_web_app" "application" {
 
     # These are app specific environment variables
 
-    "MONGODB_DATABASE" = var.azure_cosmosdb_mongodb_database
-    "MONGODB_URI"      = var.azure_cosmosdb_mongodb_uri
+    "DB_NAME"                                     = var.azure_cosmosdb_mongodb_database
+    "DB_URI"                                           = var.azure_cosmosdb_mongodb_uri
+    "DB_MOVIES_COLLECTION_NAME" = var.azure_cosmosdb_mongodb_database_movies_collection
+    "AWS_REGION"                                                       = var.aws_region
+    "AWS_ACCESS_KEY_ID"                                         = var.aws_access_key_id
+    "AWS_SECRET_ACCESS_KEY"                                 = var.aws_secret_access_key
+    "AWS_COGNITO_USER_POOL_ID"                           = var.aws_cognito_user_pool_id
+    "AWS_COGNITO_APP_CLIENT_ID"                         = var.aws_cognito_app_client_id
+    "AWS_COGNITO_USER_POOL_CLIENT_ID"             = var.aws_cognito_user_pool_client_id
+    "AWS_COGNITO_APP_CLIENT_SECRET"                 = var.aws_cognito_app_client_secret
   }
 }
 

@@ -51,3 +51,60 @@ resource "azurerm_key_vault_secret" "cosmosdb_mongodb_uri" {
 
   depends_on = [ azurerm_key_vault_access_policy.client ]
 }
+
+resource "azurerm_key_vault_secret" "aws_region" {
+  name         = "aws-region"
+  value        = var.aws_region
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+
+resource "azurerm_key_vault_secret" "aws_access_key_id" {
+  name         = "aws-access-key-id"
+  value        = var.aws_access_key_id
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+
+resource "azurerm_key_vault_secret" "aws_secret_access_key" {
+  name         = "aws-secret-access-key"
+  value        = var.aws_secret_access_key
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+
+resource "azurerm_key_vault_secret" "aws_cognito_user_pool_id" {
+  name         = "aws-cognito-user-pool-id"
+  value        = var.aws_cognito_user_pool_id
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+
+resource "azurerm_key_vault_secret" "aws_cognito_app_client_id" {
+  name         = "aws-cognito-app-client-id"
+  value        = var.aws_cognito_app_client_id
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+
+resource "azurerm_key_vault_secret" "aws_cognito_user_pool_client_id" {
+  name         = "aws-cognito-user-pool-client-id"
+  value        = var.aws_cognito_user_pool_client_id
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+
+resource "azurerm_key_vault_secret" "aws_cognito_app_client_secret" {
+  name         = "aws-cognito-app-client-secret"
+  value        = var.aws_cognito_app_client_secret
+  key_vault_id = azurerm_key_vault.application.id
+
+  depends_on = [ azurerm_key_vault_access_policy.client ]
+}
+

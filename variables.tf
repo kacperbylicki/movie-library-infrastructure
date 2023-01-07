@@ -21,3 +21,38 @@ variable "location" {
   description = "The Azure region where all resources in this example should be created"
   default     = "westeurope"
 }
+
+variable "AWS_REGION" {
+  type        = string
+  description = "Aws Region variable from .env"
+}
+
+variable "AWS_ACCESS_KEY_ID" {
+  type        = string
+  description = "Aws Access Key Id variable from .env"
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  type        = string
+  description = "Aws Secret Access Key variable from .env"
+}
+
+variable "AWS_COGNITO_USER_POOL_ID" {
+  type        = string
+  description = "Aws Cognito User Pool Id variable from .env"
+}
+
+variable "AWS_COGNITO_APP_CLIENT_ID" {
+  type        = string
+  description = "Aws Cognito App Client Id variable from .env"
+}
+
+variable "AWS_COGNITO_USER_POOL_CLIENT_ID" {
+  type        = string
+  description = "Aws Cognito User Pool Client Id variable from .env"
+}
+
+variable "AWS_COGNITO_APP_CLIENT_SECRET" {
+  type        = string
+  description = "Aws Cognito App Client Secret variable from .env"
+}

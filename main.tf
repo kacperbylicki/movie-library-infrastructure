@@ -57,6 +57,14 @@ module "application" {
 
   azure_cosmosdb_mongodb_database = module.cosmosdb-mongodb.azure_cosmosdb_mongodb_database
   azure_cosmosdb_mongodb_uri      = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/cosmosdb-mongodb-uri)"
+
+  aws_region                      = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-region)"
+  aws_access_key_id               = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-access-key-id)"
+  aws_secret_access_key           = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-secret-access-key)"
+  aws_cognito_user_pool_id        = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-cognito-user-pool-id)"
+  aws_cognito_app_client_id       = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-cognito-app-client-id)"
+  aws_cognito_user_pool_client_id = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-cognito-user-pool-client-id)"
+  aws_cognito_app_client_secret   = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-cognito-app-client-secret)"
 }
 
 module "application-insights" {
@@ -75,6 +83,14 @@ module "key-vault" {
   location         = var.location
 
   cosmosdb_mongodb_uri = module.cosmosdb-mongodb.azure_cosmosdb_mongodb_uri
+
+  aws_region = var.AWS_REGION
+  aws_access_key_id = var.AWS_ACCESS_KEY_ID
+  aws_secret_access_key = var.AWS_SECRET_ACCESS_KEY
+  aws_cognito_user_pool_id = var.AWS_COGNITO_USER_POOL_ID
+  aws_cognito_app_client_id = var.AWS_COGNITO_APP_CLIENT_ID
+  aws_cognito_user_pool_client_id =  var.AWS_COGNITO_USER_POOL_CLIENT_ID
+  aws_cognito_app_client_secret = var.AWS_COGNITO_APP_CLIENT_SECRET
 }
 
 module "cosmosdb-mongodb" {
