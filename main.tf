@@ -67,6 +67,14 @@ module "application" {
   aws_cognito_app_client_secret   = "@Microsoft.KeyVault(SecretUri=${module.key-vault.vault_uri}secrets/aws-cognito-app-client-secret)"
 }
 
+module "frontend-application" {
+  source           = "./modules/static-site"
+  resource_group   = azurerm_resource_group.main.name
+  application_name = var.application_name
+  environment      = local.environment
+  location         = var.location
+}
+
 module "application-insights" {
   source           = "./modules/application-insights"
   resource_group   = azurerm_resource_group.main.name

@@ -81,3 +81,9 @@ variable "aws_cognito_app_client_secret" {
   type        = string
   description = "AWS Cognito App Client Secret"
 }
+
+variable "port" {
+  type        = string
+  description = ""
+  default     = "8080"
+}
